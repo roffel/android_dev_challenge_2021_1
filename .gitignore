@@ -83,9 +83,6 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
-gradle/wrapper/gradle-wrapper.jar
-gradlew
-gradlew.bat
 .DS_Store
 .idea/.name
 .idea/compiler.xml
