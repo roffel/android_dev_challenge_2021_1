@@ -1,12 +1,36 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.roffel.dev_challenge_2021_1
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
@@ -17,10 +41,9 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import dev.roffel.dev_challenge_2021_1.ui.theme.Dev_challenge_1Theme
 import dev.roffel.dev_challenge_2021_1.utils.NetworkImage
-import java.util.*
+import java.util.Locale
 import kotlin.collections.ArrayList
 import kotlin.math.ceil
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,7 +74,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 
     @Composable
     fun FeaturedCourses(
@@ -85,15 +107,17 @@ class MainActivity : AppCompatActivity() {
             shape = MaterialTheme.shapes.medium
         ) {
             Card {
-                Column(Modifier.clickable(
-                    onClick = {
-                        Intent(ctx, DetailActivity::class.java).apply {
-                            putExtra(SELECTED_BUNDLE_PARAMETER, pet.id)
-                        }.let { intent ->
-                            startActivity(ctx, intent, null)
+                Column(
+                    Modifier.clickable(
+                        onClick = {
+                            Intent(ctx, DetailActivity::class.java).apply {
+                                putExtra(SELECTED_BUNDLE_PARAMETER, pet.id)
+                            }.let { intent ->
+                                startActivity(ctx, intent, null)
+                            }
                         }
-                    }
-                )) {
+                    )
+                ) {
                     NetworkImage(
                         url = "https://placedog.net/640/${(100..500).random()}?id=${pet.id + 2}",
                         contentDescription = "Good boi, ${pet.name}"
@@ -175,4 +199,3 @@ class MainActivity : AppCompatActivity() {
         internal const val SELECTED_BUNDLE_PARAMETER = "selected"
     }
 }
-

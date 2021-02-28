@@ -86,3 +86,7 @@ lint/tmp/
 gradle/wrapper/gradle-wrapper.jar
 gradlew
 gradlew.bat
+.DS_Store
+.idea/.name
+.idea/compiler.xml
+.idea/misc.xml
