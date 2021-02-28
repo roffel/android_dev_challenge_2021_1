@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Pawdoption</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="adopt_pet">"Adopt %s!"</string>
+    <string name="details_header_pet">"Details of %s"</string>
+    <string name="call_for_more">"Call for more info about %s"</string>
+</resources>
